@@ -25,22 +25,16 @@ button,a{touch-action:manipulation}
 .mono{font-family:var(--mono)}
 
 /* ===== PHANTOM ACCESS INTRO ===== */
-.ph-overlay{display:none;position:fixed;top:0;right:0;bottom:0;left:0;width:100%;height:100vh;height:100dvh;z-index:999;
-align-items:center;justify-content:center;
+.ph-overlay{display:none;position:fixed;top:0;right:0;bottom:0;left:0;width:100%;height:100vh;height:100dvh;z-index:999;align-items:center;justify-content:center;
 padding:max(1rem,env(safe-area-inset-top)) max(1rem,env(safe-area-inset-right)) max(1rem,env(safe-area-inset-bottom)) max(1rem,env(safe-area-inset-left));
-background:#030705;overscroll-behavior:contain;
-background-image:radial-gradient(60% 45% at 15% 15%,rgba(43,255,136,.12),transparent),radial-gradient(55% 45% at 85% 85%,rgba(124,58,237,.18),transparent);
+background:#030705;background-image:radial-gradient(60% 45% at 15% 15%,rgba(43,255,136,.12),transparent),radial-gradient(55% 45% at 85% 85%,rgba(124,58,237,.18),transparent);
 transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
 .ph-overlay::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;background-image:linear-gradient(rgba(43,255,136,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(43,255,136,.035) 1px,transparent 1px);background-size:42px 42px}
 html.phantom-on body{overflow:hidden}
 html.phantom-on .ph-overlay{display:flex}
 html.phantom-exit .ph-overlay{opacity:0;transform:scale(1.02);pointer-events:none}
-
-.ph-term{position:relative;z-index:2;width:min(680px,100%);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);
-overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
-border:1px solid rgba(43,255,136,.32);border-radius:16px;background:#070f0b;
-box-shadow:0 24px 70px rgba(0,0,0,.8),0 0 40px rgba(43,255,136,.14),0 0 55px rgba(124,58,237,.16)}
-
+.ph-term{position:relative;z-index:2;width:min(680px,100%);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow-y:auto;-webkit-overflow-scrolling:touch;
+border:1px solid rgba(43,255,136,.32);border-radius:16px;background:#070f0b;box-shadow:0 24px 70px rgba(0,0,0,.8),0 0 40px rgba(43,255,136,.14),0 0 55px rgba(124,58,237,.16)}
 .ph-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 1.1rem;border-bottom:1px solid rgba(43,255,136,.18);background:#040906}
 .ph-hl{display:flex;align-items:center;gap:.65rem;min-width:0}
 .ph-dots{display:flex;gap:.38rem;flex:none}
@@ -50,11 +44,9 @@ box-shadow:0 24px 70px rgba(0,0,0,.8),0 0 40px rgba(43,255,136,.14),0 0 55px rgb
 .ph-badge{font:500 .68rem var(--mono);color:#c4b5fd;border:1px solid rgba(124,58,237,.45);background:rgba(124,58,237,.14);padding:.15rem .55rem;border-radius:999px;flex:none}
 .ph-skip{appearance:none;-webkit-appearance:none;background:rgba(43,255,136,.07);border:1px solid rgba(43,255,136,.24);border-radius:8px;color:var(--m);font:500 .74rem var(--mono);min-height:36px;padding:.4rem .75rem;cursor:pointer;flex:none;transition:color .2s,border-color .2s,background .2s}
 .ph-skip:hover{color:var(--g);border-color:var(--g);background:rgba(43,255,136,.14)}
-
 .ph-body{padding:1.3rem;font-family:var(--mono)}
 .ph-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.45rem .8rem;font-size:.73rem;color:var(--m);padding-bottom:.85rem;margin-bottom:1rem;border-bottom:1px dashed rgba(124,58,237,.3)}
 .ph-meta span b{color:#c4b5fd;font-weight:500}
-
 .ph-lines{min-height:11.6rem;display:flex;flex-direction:column;gap:.5rem;font-size:clamp(.68rem,2.45vw,.92rem);line-height:1.55}
 .ph-line{display:flex;align-items:baseline;gap:.5rem;color:var(--t)}
 .ph-prompt{color:var(--g);font-weight:600;user-select:none;flex:none}
@@ -63,40 +55,23 @@ box-shadow:0 24px 70px rgba(0,0,0,.8),0 0 40px rgba(43,255,136,.14),0 0 55px rgb
 .ph-line.done .ph-ok{opacity:1;color:var(--g);border-color:rgba(43,255,136,.3);background:rgba(43,255,136,.08)}
 .ph-cur{display:inline-block;width:.52em;height:1.05em;background:var(--g);vertical-align:-.16em;margin-left:.18rem;box-shadow:0 0 10px var(--g);animation:phBlink .85s steps(1) infinite}
 @keyframes phBlink{50%{opacity:0}}
-
 .ph-prog-wrap{margin-top:1.15rem}
 .ph-prog-top{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--m);margin-bottom:.45rem}
 .ph-prog-top b{color:var(--g);font-weight:600;font-variant-numeric:tabular-nums}
 .ph-track{height:7px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(43,255,136,.18);overflow:hidden}
 .ph-fill{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--p),var(--g));box-shadow:0 0 16px rgba(43,255,136,.55);transition:width .2s ease-out}
-
-.ph-grant{opacity:0;max-height:0;overflow:hidden;border:0 solid rgba(43,255,136,.42);border-radius:12px;
-background:linear-gradient(135deg,rgba(43,255,136,.11),rgba(124,58,237,.1));
-box-shadow:0 0 28px rgba(43,255,136,.18);transition:opacity .4s ease,max-height .4s ease,padding .4s ease,margin .4s ease}
+.ph-grant{opacity:0;max-height:0;overflow:hidden;border:0 solid rgba(43,255,136,.42);border-radius:12px;background:linear-gradient(135deg,rgba(43,255,136,.11),rgba(124,58,237,.1));box-shadow:0 0 28px rgba(43,255,136,.18);transition:opacity .4s ease,max-height .4s ease,padding .4s ease,margin .4s ease}
 .ph-grant.show{opacity:1;max-height:220px;padding:1.05rem 1.15rem;margin-top:1.1rem;border-width:1px}
 .ph-grant-status{font:600 clamp(.9rem,2.6vw,1.12rem)/1.2 var(--mono);letter-spacing:.08em;color:var(--g);text-shadow:0 0 16px rgba(43,255,136,.6)}
 .ph-grant-welcome{margin-top:.45rem;font:500 clamp(.78rem,2.1vw,.94rem)/1.4 var(--mono);color:var(--t)}
 .ph-grant-id{margin-top:.35rem;font:italic 800 clamp(1.12rem,3.6vw,1.5rem)/1.1 var(--disp);letter-spacing:.03em;text-transform:uppercase;color:#c4b5fd}
 .ph-grant-id span{color:var(--g)}
-
 .ph-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem;margin-top:1.15rem;padding-top:1rem;border-top:1px solid rgba(43,255,136,.14)}
 .ph-hint{font-size:.72rem;color:var(--m)}
-.ph-enter{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:46px;padding:.72rem 1.35rem;border-radius:10px;border:1.5px solid var(--g);
-background:rgba(43,255,136,.12);color:var(--g);font:600 .82rem var(--mono);letter-spacing:.05em;cursor:pointer;
-transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+.ph-enter{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:46px;padding:.72rem 1.35rem;border-radius:10px;border:1.5px solid var(--g);background:rgba(43,255,136,.12);color:var(--g);font:600 .82rem var(--mono);letter-spacing:.05em;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
 .ph-enter:hover,.ph-term.ready .ph-enter{background:var(--g);color:#03130a;box-shadow:0 0 26px rgba(43,255,136,.4)}
 .ph-enter svg{width:1rem;height:1rem;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-@media (max-width:560px){
-  .ph-head{padding:.75rem .9rem}
-  .ph-badge{display:none}
-  .ph-title{font-size:.74rem}
-  .ph-body{padding:.95rem}
-  .ph-lines{min-height:12.4rem}
-  .ph-foot{flex-direction:column;align-items:stretch;gap:.65rem}
-  .ph-hint{text-align:center}
-  .ph-enter{width:100%}
-}
+@media (max-width:560px){.ph-head{padding:.75rem .9rem}.ph-badge{display:none}.ph-title{font-size:.74rem}.ph-body{padding:.95rem}.ph-lines{min-height:12.4rem}.ph-foot{flex-direction:column;align-items:stretch;gap:.65rem}.ph-hint{text-align:center}.ph-enter{width:100%}}
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto;height:var(--nav);z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
@@ -210,4 +185,462 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
 .cat{display:inline-block;color:var(--g);font:500 .74rem var(--mono);margin-bottom:.8rem;padding:.2rem .7rem;border:1px solid var(--b);border-radius:999px;background:rgba(43,255,136,.07)}
 .pj h3{font:700 1.2rem/1.25 var(--body);margin-bottom:.6rem}
 .pb p{color:var(--m);font-size:.92rem;line-height:1.65}
-.tg{display:flex;flex-wrap:wrap;align-items:c
+.tg{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-top:auto;padding:.6rem 1.3rem 1.3rem}
+.tg span{font:400 .72rem var(--mono);color:var(--g);border:1px solid var(--b);border-radius:6px;padding:.15rem .55rem;background:rgba(43,255,136,.05)}
+.tg .pj-go{display:inline-flex;align-items:center;gap:.3rem;margin-left:auto;border:none;background:none;padding:0;font:500 .74rem var(--mono);color:var(--g);opacity:.82;transition:opacity .2s,transform .2s}
+.pj-go .ic{width:.95rem;height:.95rem}
+.pj:hover .pj-go{opacity:1;transform:translate(2px,-2px)}
+.lead{color:var(--m);max-width:56ch;margin:-1rem 0 2rem;font-size:1.05rem}
+.contacts{grid-template-columns:repeat(3,1fr)}
+.ct{display:flex;align-items:center;gap:1rem;padding:1.4rem;height:100%}
+.ct .ic{width:2rem;height:2rem}.ct .go{width:1.1rem;height:1.1rem;margin-left:auto;opacity:.5;transition:.25s}.ct:hover .go{transform:translate(3px,-3px);opacity:1}
+.ct span{display:flex;flex-direction:column;min-width:0;overflow-wrap:anywhere;color:var(--m);font-size:.9rem}.ct b{color:var(--t);font:700 1.1rem var(--body)}
+.foot{border-top:1px solid var(--b);padding:2.2rem 0;color:var(--m);font-size:.9rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:space-between;align-items:center}
+.fl{display:flex;align-items:center;gap:1.1rem}
+.top{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .9rem;border:1px solid var(--b);border-radius:999px;color:var(--t);transition:.2s}.top .ic{width:1.05rem;height:1.05rem}.top:hover{border-color:var(--g);color:var(--g)}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.js .rv.in{opacity:1;transform:none}
+
+/* responsive */
+@media (max-width:1200px){.projects{grid-template-columns:repeat(2,1fr)}.skills{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:1000px){
+  .status{display:none}.burger{display:block}
+  .menu{position:fixed;top:calc(var(--nav) - 4px);left:.75rem;right:.75rem;flex-direction:column;border-radius:18px;background:#0a130e;padding:.5rem;box-shadow:0 20px 40px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s}
+  .menu.open{opacity:1;visibility:visible;transform:none}.menu a{min-height:48px;display:flex;align-items:center;border-radius:12px}
+  .hero{min-height:auto}.hero-in{grid-template-columns:1fr;gap:2.5rem}
+  .vis{order:2}
+}
+@media (max-width:700px){
+  .wrap{width:min(1200px,100% - 2rem)}
+  .feat{grid-template-columns:1fr 1fr;gap:1.2rem}
+  .about{grid-template-columns:1fr;justify-items:start;gap:2rem}
+  .projects,.contacts{grid-template-columns:1fr;grid-auto-rows:auto}
+  .btns .btn{flex:1 1 calc(50% - .4rem);padding-inline:1rem}
+  .skills{grid-template-columns:1fr;gap:.7rem}
+  .sk{flex-direction:row;align-items:center;min-height:0;padding:1rem 1.1rem}.sk .lv{margin:0 0 0 auto}
+  .abox{padding:1.3rem}
+}
+@media (max-width:360px){.btns .btn{flex-basis:100%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.term p{opacity:1}.ph-overlay{display:none!important}}
+</style>
+</head>
+<body>
+
+<div class="ph-overlay" id="ph-overlay" role="dialog" aria-modal="true" aria-label="MH System Terminal intro">
+  <div class="ph-term" id="ph-term">
+    <div class="ph-head">
+      <div class="ph-hl">
+        <div class="ph-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <span class="ph-title">MH SYSTEM TERMINAL</span>
+        <span class="ph-badge">PHANTOM // WORKSPACE</span>
+      </div>
+      <button type="button" class="ph-skip" id="ph-skip" aria-label="Skip intro animation">Skip Intro</button>
+    </div>
+    <div class="ph-body">
+      <div class="ph-meta"><span>env: <b>python · web · ai-tools</b></span><span>node: <b>dhaka/nsc-it</b></span></div>
+      <div class="ph-lines" id="ph-lines" aria-live="polite"></div>
+      <div class="ph-prog-wrap">
+        <div class="ph-prog-top"><span id="ph-prog-lbl">Preparing workspace...</span><b id="ph-pct">0%</b></div>
+        <div class="ph-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="ph-track"><div class="ph-fill" id="ph-fill"></div></div>
+      </div>
+      <div class="ph-grant" id="ph-grant" aria-live="assertive">
+        <div class="ph-grant-status">ACCESS GRANTED &#10003;</div>
+        <div class="ph-grant-welcome">WELCOME TO MY DIGITAL WORLD.</div>
+        <div class="ph-grant-id">MEAHEARAB HOSSAIN <span>| DEVELOPER IN PROGRESS</span></div>
+      </div>
+      <div class="ph-foot">
+        <span class="ph-hint">Press Esc / Enter or tap button to enter</span>
+        <button type="button" class="ph-enter" id="ph-enter">ENTER PORTFOLIO <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var overlay=document.getElementById('ph-overlay'),term=document.getElementById('ph-term'),linesBox=document.getElementById('ph-lines'),
+  fill=document.getElementById('ph-fill'),pct=document.getElementById('ph-pct'),track=document.getElementById('ph-track'),
+  lbl=document.getElementById('ph-prog-lbl'),grant=document.getElementById('ph-grant'),btnEnter=document.getElementById('ph-enter'),btnSkip=document.getElementById('ph-skip');
+  if(!overlay||!linesBox)return;
+  root.classList.add('phantom-on');
+  var steps=[
+    {text:'Initializing MH Portfolio System...',tag:'OK'},
+    {text:'Loading personal identity...',tag:'SYNC'},
+    {text:'Establishing creative environment...',tag:'READY'},
+    {text:'Loading Python modules...',tag:'LOADED'},
+    {text:'Connecting AI interfaces...',tag:'LINKED'},
+    {text:'Verifying access permissions...',tag:'CLEAR'}
+  ];
+  var closed=false,timers=[];
+  function later(fn,ms){var id=setTimeout(fn,ms);timers.push(id);return id}
+  function setProg(v,t){v=Math.min(100,Math.max(0,Math.round(v)));if(fill)fill.style.width=v+'%';if(pct)pct.textContent=v+'%';if(track)track.setAttribute('aria-valuenow',String(v));if(t&&lbl)lbl.textContent=t}
+  function closeIntro(){
+    if(closed)return;closed=true;
+    for(var i=0;i<timers.length;i++)clearTimeout(timers[i]);
+    document.removeEventListener('keydown',onKey);
+    root.classList.add('phantom-exit');
+    function done(){root.classList.remove('phantom-on','phantom-exit');overlay.setAttribute('aria-hidden','true')}
+    overlay.addEventListener('transitionend',done,{once:true});
+    setTimeout(done,620);
+  }
+  function onKey(e){if(e.key==='Escape'||e.keyCode===27||e.key==='Enter'||e.keyCode===13)closeIntro()}
+  document.addEventListener('keydown',onKey);
+  if(btnEnter)btnEnter.addEventListener('click',closeIntro);
+  if(btnSkip)btnSkip.addEventListener('click',closeIntro);
+  later(closeIntro,10000);
+  try{
+    var cur=document.createElement('span');cur.className='ph-cur';cur.setAttribute('aria-hidden','true');
+    var li=0;
+    function nextLine(){
+      if(closed)return;
+      if(li>=steps.length){
+        if(cur.parentNode)cur.parentNode.removeChild(cur);
+        setProg(100,'Workspace ready');
+        later(function(){if(closed)return;if(term)term.classList.add('ready');if(grant)grant.classList.add('show');later(closeIntro,1550)},200);
+        return;
+      }
+      var st=steps[li],row=document.createElement('div');row.className='ph-line';
+      var pr=document.createElement('span');pr.className='ph-prompt';pr.textContent='>';
+      var tx=document.createElement('span');tx.className='ph-txt';tx.appendChild(cur);
+      var ok=document.createElement('span');ok.className='ph-ok';ok.textContent='['+st.tag+']';
+      row.appendChild(pr);row.appendChild(tx);row.appendChild(ok);linesBox.appendChild(row);
+      var ci=0;
+      function nextChar(){
+        if(closed)return;
+        if(ci<st.text.length){
+          tx.insertBefore(document.createTextNode(st.text.charAt(ci)),cur);ci++;
+          setProg(((li+ci/st.text.length)/steps.length)*100,li===steps.length-1?'Finalizing workspace...':'Booting modules...');
+          later(nextChar,18);
+        }else{row.className+=' done';li++;later(nextLine,95)}
+      }
+      nextChar();
+    }
+    nextLine();
+  }catch(e){closeIntro()}
+})();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+<symbol id="i-term" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-gh" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</defs></svg>
+
+<header class="nav" id="nav"><div class="wrap nav-in">
+  <a href="#home" class="logo" aria-label="Meahearab Hossain, home"><b>{MH}</b>Meahearab</a>
+  <nav class="menu" id="menu" aria-label="Main">
+    <a href="#home" class="on">home</a><a href="#about">about</a><a href="#skills">skills</a><a href="#projects">projects</a><a href="#contact">contact</a>
+  </nav>
+  <span class="status"><i></i>online</span>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+</div></header>
+
+<main>
+<section id="home" class="hero"><div class="wrap hero-in">
+  <div>
+    <h1><span class="l">I build <em>&lt;/&gt;</em></span><span class="gr">Digital</span>Ideas</h1>
+    <p class="sub">Exploring. Learning. <span>Building.</span></p>
+    <p class="tag">Student | Aspiring AI Engineer | Programmer &amp; Technology Enthusiast</p>
+    <p class="intro">Turning curiosity into code and ideas into reality.</p>
+    <p class="meta">Class XI (HSC 2028) &middot; Navians' Science Club, IT Department</p>
+    <div class="btns"><a class="btn p" href="#projects">View My Projects</a><a class="btn o" href="#contact">Contact Me</a></div>
+    <ul class="feat">
+      <li><div class="bx"><svg class="ic"><use href="#i-search"/></svg></div><h3>Curious Learner</h3><p>Always exploring how things work.</p></li>
+      <li><div class="bx"><svg class="ic"><use href="#i-bulb"/></svg></div><h3>Problem Solver</h3><p>Enjoys breaking problems into steps.</p></li>
+      <li><div class="bx"><svg class="ic"><use href="#i-cpu"/></svg></div><h3>AI Explorer</h3><p>Experimenting with AI-powered tools.</p></li>
+      <li><div class="bx"><svg class="ic"><use href="#i-code"/></svg></div><h3>Web Builder</h3><p>Creating clean &amp; modern websites.</p></li>
+    </ul>
+  </div>
+
+  <div class="vis" id="vis"><div class="stage" id="stage">
+    <div class="win term">
+      <div class="bar"><i></i><i></i><i></i><span>~/portfolio — bash</span></div>
+      <div class="code">
+        <p><span class="k">$</span> <span class="w">whoami</span></p>
+        <p><span class="s">Meahearab Hossain</span></p>
+        <p><span class="k">$</span> <span class="w">cat role.txt</span></p>
+        <p><span class="c">Student · Aspiring AI Engineer</span></p>
+        <p><span class="k">$</span> <span class="w">echo $GOAL</span></p>
+        <p><span class="s">"Build Intelligent Systems"</span></p>
+        <p><span class="k">$</span> <span class="w">_</span></p>
+      </div>
+    </div>
+
+    <div class="lap">
+      <div class="scr">
+        <div class="mini"><b>MH.dev</b><span><a href="#projects">Projects</a><a href="#about">About</a><b class="on">&bull; online</b></span></div>
+        <div class="m2">
+          <div class="a">
+            <h4>Aspiring <s>AI Engineer</s></h4>
+            <p>Building my foundation in code, design &amp; intelligent systems.</p>
+            <a class="bt" href="#projects">View My Work</a>
+          </div>
+          <div class="cd"><span class="k">const</span> developer = {
+  name: <span class="s">"Meahearab"</span>,
+  class: <span class="s">"XI"</span>,
+  learning: [
+    <span class="s">"HTML"</span>,
+    <span class="s">"CSS"</span>,
+    <span class="s">"Python"</span>
+  ]
+};</div>
+        </div>
+        <div class="mf"><span>Python</span><span>HTML &amp; CSS</span><span>AI Tools</span></div>
+      </div>
+      <div class="base"></div>
+    </div>
+
+    <div class="win abt">
+      <div class="bar"><i></i><i></i><i></i><span>about.me</span></div>
+      <div class="code"><span class="pill">Aspiring AI Engineer</span>
+<span class="k">const</span> developer = {
+  name: <span class="s">"Meahearab"</span>,
+  role: <span class="s">"Student &amp; Coder"</span>,
+  focus: <span class="s">"AI &amp; Web"</span>
+};</div>
+      <div class="tiles">
+        <div><b>4</b><span>projects shared</span></div>
+        <div><b>3</b><span>tools learning</span></div>
+        <div><b>XI</b><span>class</span></div>
+        <div><b>AI</b><span>long-term goal</span></div>
+      </div>
+    </div>
+
+    <a class="lets" href="#contact">Let's connect <svg class="ic"><use href="#i-arr"/></svg></a>
+  </div></div>
+</div></section>
+
+<section id="about" class="sec"><div class="wrap">
+  <h2 class="ttl rv">About <span>Me</span></h2>
+  <div class="about">
+    <div class="pfw rv">
+      <img class="pf" src="profile.jpg" alt="Portrait of Meahearab Hossain on a rooftop at sunset" onerror="this.parentElement.classList.add('no');this.remove()">
+    </div>
+    <div class="card abox rv">
+      <p>I'm Meahearab Hossain, a Class XI science student and aspiring AI Engineer who enjoys exploring technology, learning programming, and building creative digital projects.</p>
+      <p style="margin-top:1rem">Right now, I'm building my foundation in HTML, CSS, and Python while experimenting with AI-powered tools and sharpening my problem-solving skills. My long-term goal is to become an AI Engineer and create intelligent systems that solve real-world problems.</p>
+      <ul class="chips">
+        <li>Artificial Intelligence</li>
+        <li>Programming</li>
+        <li>Problem Solving</li>
+        <li>Science &amp; Technology</li>
+        <li>Web Development</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills" class="sec"><div class="wrap">
+  <h2 class="ttl rv">Skills &amp; <span>Interests</span></h2>
+  <ul class="grid skills">
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-code"/></svg></div><h3>HTML &amp; CSS</h3><span class="lv">Beginner</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-term"/></svg></div><h3>Python Programming</h3><span class="lv">Beginner</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-cpu"/></svg></div><h3>AI Tools &amp; Prompt Engineering</h3><span class="lv">Active</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-pen"/></svg></div><h3>Canva &amp; Graphic Design</h3><span class="lv">Creative</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-bulb"/></svg></div><h3>Problem Solving</h3><span class="lv">Daily Practice</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-globe"/></svg></div><h3>Website Development</h3><span class="lv">Learning</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-search"/></svg></div><h3>Technology &amp; AI Research</h3><span class="lv">Curiosity</span></li>
+    <li class="card sk rv"><div class="bx"><svg class="ic"><use href="#i-grid"/></svg></div><h3>Chess &amp; Strategic Thinking</h3><span class="lv">Hobby</span></li>
+  </ul>
+</div></section>
+
+<section id="projects" class="sec"><div class="wrap">
+  <h2 class="ttl rv">Projects &amp; <span>Achievements</span></h2>
+  <div class="grid projects">
+
+    <a class="card pj rv" href="https://sites.google.com/view/meahearab-hossain-portal/portal-home" target="_blank" rel="noopener noreferrer">
+      <div class="pt">
+        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MH Interactive Portal preview">
+          <rect width="320" height="180" fill="#060e0a"/>
+          <path d="M0 45H320M0 90H320M0 135H320M80 0V180M160 0V180M240 0V180" stroke="#2BFF88" stroke-opacity=".06"/>
+          <rect x="20" y="18" width="280" height="144" rx="10" fill="#09150f" stroke="#2BFF88" stroke-opacity=".3"/>
+          <path d="M20 42H300" stroke="#2BFF88" stroke-opacity=".2"/>
+          <circle cx="34" cy="30" r="3.5" fill="#ff5f57"/><circle cx="46" cy="30" r="3.5" fill="#febc2e"/><circle cx="58" cy="30" r="3.5" fill="#28c840"/>
+          <rect x="74" y="25" width="160" height="10" rx="5" fill="#050b08" stroke="#2BFF88" stroke-opacity=".2"/>
+          <text x="84" y="32.5" fill="#8B9C93" font-family="monospace" font-size="6.5">meahearab-hossain-portal</text>
+          <rect x="34" y="54" width="110" height="44" rx="6" fill="#0d1e15" stroke="#2BFF88" stroke-opacity=".35"/>
+          <text x="44" y="73" fill="#2BFF88" font-family="monospace" font-size="9" font-weight="bold">{MH} PORTAL</text>
+          <text x="44" y="87" fill="#8B9C93" font-family="monospace" font-size="7">Links &amp; Hub</text>
+          <rect x="154" y="54" width="132" height="44" rx="6" fill="#131026" stroke="#7c3aed" stroke-opacity=".4"/>
+          <rect x="164" y="65" width="76" height="6" rx="3" fill="#EAF2EE" opacity=".7"/>
+          <rect x="164" y="77" width="106" height="5" rx="2.5" fill="#8B9C93" opacity=".45"/>
+          <rect x="34" y="108" width="78" height="40" rx="6" fill="#0b1711" stroke="#2BFF88" stroke-opacity=".2"/>
+          <rect x="121" y="108" width="78" height="40" rx="6" fill="#0b1711" stroke="#2BFF88" stroke-opacity=".2"/>
+          <rect x="208" y="108" width="78" height="40" rx="6" fill="#0b1711" stroke="#2BFF88" stroke-opacity=".2"/>
+          <circle cx="48" cy="128" r="6" fill="#2BFF88" opacity=".25"/><circle cx="135" cy="128" r="6" fill="#2BFF88" opacity=".25"/><circle cx="222" cy="128" r="6" fill="#2BFF88" opacity=".25"/>
+        </svg>
+      </div>
+      <div class="pb">
+        <span class="cat">Interactive Web Portal</span>
+        <h3>MH Interactive Portal</h3>
+        <p>An interactive personal web portal designed to organize links, experiments, and web learning resources in a structured format.</p>
+      </div>
+      <div class="tg">
+        <span>HTML</span><span>CSS</span><span>Web Structure</span>
+        <span class="pj-go">Visit <svg class="ic"><use href="#i-ext"/></svg></span>
+      </div>
+    </a>
+
+    <a class="card pj rv" href="https://sites.google.com/view/meahearab-hossain-portal/games/play-games" target="_blank" rel="noopener noreferrer">
+      <div class="pt">
+        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Python Programming Projects preview">
+          <rect width="320" height="180" fill="#060c10"/>
+          <rect x="22" y="20" width="276" height="140" rx="10" fill="#08120e" stroke="#2BFF88" stroke-opacity=".3"/>
+          <path d="M22 42H298" stroke="#2BFF88" stroke-opacity=".2"/>
+          <text x="34" y="34" fill="#2BFF88" font-family="monospace" font-size="8.5">$ python3 play_games.py</text>
+          <text x="36" y="64" fill="#7DD3FC" font-family="monospace" font-size="9">def</text>
+          <text x="58" y="64" fill="#2BFF88" font-family="monospace" font-size="9">start_game</text>
+          <text x="115" y="64" fill="#EAF2EE" font-family="monospace" font-size="9">(player):</text>
+          <text x="48" y="82" fill="#EAF2EE" font-family="monospace" font-size="9">score = <tspan fill="#7DD3FC">0</tspan></text>
+          <text x="48" y="100" fill="#2BFF88" font-family="monospace" font-size="9">while</text>
+          <text x="80" y="100" fill="#EAF2EE" font-family="monospace" font-size="9">playing:</text>
+          <text x="60" y="118" fill="#8B9C93" font-family="monospace" font-size="8.5"># Interactive Python Logic</text>
+          <rect x="210" y="56" width="70" height="84" rx="8" fill="#120f24" stroke="#7c3aed" stroke-opacity=".5"/>
+          <polygon points="238,84 238,112 260,98" fill="#2BFF88"/>
+          <text x="223" y="130" fill="#EAF2EE" font-family="monospace" font-size="7.5">PLAY NOW</text>
+        </svg>
+      </div>
+      <div class="pb">
+        <span class="cat">Python Programs</span>
+        <h3>Python Programming Projects</h3>
+        <p>Beginner Python projects focused on practicing logic, loops, functions, and problem-solving through simple interactive programs.</p>
+      </div>
+      <div class="tg">
+        <span>Python</span><span>Logic</span><span>Problem Solving</span>
+        <span class="pj-go">Play <svg class="ic"><use href="#i-ext"/></svg></span>
+      </div>
+    </a>
+
+    <a class="card pj rv" href="quizing-sparks.jpg" target="_blank" rel="noopener noreferrer">
+      <div class="pt">
+        <img class="poster" src="quizing-sparks.jpg" alt="Quizing Sparks — Navians' Science Club upcoming scientific quiz series poster">
+      </div>
+      <div class="pb">
+        <span class="cat">Graphic &amp; AI Design</span>
+        <h3>Creative Design Projects</h3>
+        <p>Visual posters, layouts, and creative digital graphics made using Canva and AI-assisted design workflows.</p>
+      </div>
+      <div class="tg">
+        <span>Canva</span><span>AI Design Tools</span><span>Graphics</span>
+        <span class="pj-go">View <svg class="ic"><use href="#i-ext"/></svg></span>
+      </div>
+    </a>
+
+    <article class="card pj rv">
+      <div class="pt">
+        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Programming code editor and personal growth curve">
+          <defs>
+            <linearGradient id="pgBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#050b08"/><stop offset="100%" stop-color="#101024"/></linearGradient>
+            <linearGradient id="pgLine" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#7c3aed" stop-opacity=".35"/><stop offset="100%" stop-color="#2BFF88" stop-opacity=".9"/></linearGradient>
+          </defs>
+          <rect width="320" height="180" fill="url(#pgBg)"/>
+          <path d="M0 45H320M0 90H320M0 135H320M80 0V180M160 0V180M240 0V180" stroke="#2BFF88" stroke-opacity=".06"/>
+          <rect x="22" y="20" width="276" height="140" rx="8" fill="#07110c" stroke="#2BFF88" stroke-opacity=".28"/>
+          <path d="M22 42H298" stroke="#2BFF88" stroke-opacity=".2"/>
+          <circle cx="36" cy="31" r="3.5" fill="#ff5f57"/><circle cx="48" cy="31" r="3.5" fill="#febc2e"/><circle cx="60" cy="31" r="3.5" fill="#28c840"/>
+          <text x="74" y="34" fill="#8B9C93" font-family="monospace" font-size="8.5">growth.py</text>
+          <text x="34" y="62" fill="#5b6e63" font-family="monospace" font-size="9">01</text><text x="54" y="62" fill="#2BFF88" font-family="monospace" font-size="9">while</text><text x="86" y="62" fill="#EAF2EE" font-family="monospace" font-size="9">curious:</text>
+          <text x="34" y="80" fill="#5b6e63" font-family="monospace" font-size="9">02</text><text x="66" y="80" fill="#7DD3FC" font-family="monospace" font-size="9">learn</text><text x="96" y="80" fill="#EAF2EE" font-family="monospace" font-size="9">("Python &amp; AI")</text>
+          <text x="34" y="98" fill="#5b6e63" font-family="monospace" font-size="9">03</text><text x="66" y="98" fill="#7DD3FC" font-family="monospace" font-size="9">build</text><text x="96" y="98" fill="#EAF2EE" font-family="monospace" font-size="9">("real_projects")</text>
+          <text x="34" y="116" fill="#5b6e63" font-family="monospace" font-size="9">04</text><text x="66" y="116" fill="#2BFF88" font-family="monospace" font-size="9">skills</text><text x="102" y="116" fill="#EAF2EE" font-family="monospace" font-size="9">+= 1</text>
+          <rect x="128" y="108" width="5" height="10" fill="#2BFF88" opacity=".85"/>
+          <path d="M36 146 C95 144, 145 128, 195 112 C230 100, 260 72, 284 54" fill="none" stroke="url(#pgLine)" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="284" cy="54" r="4" fill="#2BFF88"/>
+        </svg>
+      </div>
+      <div class="pb">
+        <span class="cat">Personal Growth</span>
+        <h3>Learning &amp; Exploration</h3>
+        <p>Continuous self-driven learning across artificial intelligence concepts, Python programming, and modern web development.</p>
+      </div>
+      <div class="tg">
+        <span>AI</span><span>Python</span><span>Web</span>
+      </div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="contact" class="sec"><div class="wrap">
+  <h2 class="ttl rv">Get in <span>Touch</span></h2>
+  <p class="lead rv">Always open to connecting with fellow learners, developers, and anyone curious about technology and AI.</p>
+  <div class="grid contacts">
+    <a class="card ct rv" href="mailto:hossainmehrab0009@gmail.com">
+      <svg class="ic"><use href="#i-mail"/></svg>
+      <span><b>Email</b>hossainmehrab0009@gmail.com</span>
+      <svg class="ic go"><use href="#i-ext"/></svg>
+    </a>
+    <a class="card ct rv" href="https://github.com/MH1321141401" target="_blank" rel="noopener noreferrer">
+      <svg class="ic"><use href="#i-gh"/></svg>
+      <span><b>GitHub</b>github.com/MH1321141401</span>
+      <svg class="ic go"><use href="#i-ext"/></svg>
+    </a>
+    <a class="card ct rv" href="https://www.facebook.com/meahearab.hossain" target="_blank" rel="noopener noreferrer">
+      <svg class="ic"><use href="#i-fb"/></svg>
+      <span><b>Facebook</b>facebook.com/meahearab.hossain</span>
+      <svg class="ic go"><use href="#i-ext"/></svg>
+    </a>
+  </div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <p>Designed &amp; Built by Meahearab Hossain | Navians' Science Club IT Department</p>
+  <div class="fl">
+    <span>&copy; <span id="yr">2026</span></span>
+    <a class="top" href="#home">Back to Top <svg class="ic"><use href="#i-up"/></svg></a>
+  </div>
+</div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const nav=document.getElementById('nav'),burger=document.getElementById('burger'),menu=document.getElementById('menu'),
+links=[...document.querySelectorAll('.menu a[href^="#"]')],secs=[...document.querySelectorAll('section[id]')],
+vis=document.getElementById('vis'),stage=document.getElementById('stage');
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+const setMenu=o=>{menu.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Close menu':'Open menu')};
+burger.addEventListener('click',e=>{e.stopPropagation();setMenu(!menu.classList.contains('open'))});
+links.forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('click',e=>{if(menu.classList.contains('open')&&!menu.contains(e.target)&&e.target!==burger)setMenu(false)});
+addEventListener('keydown',e=>e.key==='Escape'&&setMenu(false));
+addEventListener('resize',()=>innerWidth>1000&&setMenu(false));
+
+const onScroll=()=>{
+  nav.classList.toggle('sc',scrollY>18);
+  const y=scrollY+140;
+  let id='home';
+  for(let i=secs.length-1;i>=0;i--){if(secs[i].offsetTop<=y){id=secs[i].id;break}}
+  links.forEach(a=>{const on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);on?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current')});
+};
+onScroll();
+addEventListener('scroll',onScroll,{passive:true});
+
+const fit=()=>{if(!vis||!stage)return;const w=vis.clientWidth,k=Math.min(w/640,1);stage.style.transform=k<1?`scale(${k})`:'';vis.style.height=k<1?Math.ceil(560*k)+'px':''};
+if(vis){if(window.ResizeObserver)new ResizeObserver(fit).observe(vis);addEventListener('resize',fit);fit();}
+
+const rv=[...document.querySelectorAll('.rv')];
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+  }),{threshold:.01,rootMargin:'0px 0px 60px 0px'});
+  rv.forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+}else{
+  rv.forEach(el=>el.classList.add('in'));
+}
+</script>
+</body>
+</html>
