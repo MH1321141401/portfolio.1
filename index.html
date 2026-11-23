@@ -108,7 +108,7 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
 .btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:2.2rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:.75rem 1.6rem;border-radius:12px;font-weight:600;border:1.5px solid var(--g);transition:transform .2s,box-shadow .2s,background .2s}
 .btn.p{background:var(--g);color:#03130a}.btn.p:hover{box-shadow:0 8px 30px rgba(43,255,136,.35);transform:translateY(-2px)}
-.btn.o{color:var(--g)}.btn.o:hover{background:rgba(43,255,136,.1);transform:translateY(-2px)}
+.btn.o{color:var(--g);background:transparent}.btn.o:hover{background:rgba(43,255,136,.1);transform:translateY(-2px)}
 .btn:active{transform:scale(.98)}
 .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
 .feat li{min-width:0}
@@ -173,6 +173,47 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
 .sk .bx{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--b);border-radius:12px;background:rgba(43,255,136,.06)}
 .sk h3{font:600 1rem/1.3 var(--body)}
 .lv{margin-top:auto;align-self:flex-start;font:400 .75rem var(--mono);color:var(--m);border:1px solid var(--b);border-radius:999px;padding:.1rem .7rem}
+
+/* ===== LEARNSPHERE FEATURED CARD & MODAL ===== */
+.pj-ls{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1.15fr);gap:1.8rem;align-items:center;padding:1.45rem;margin-bottom:1.4rem;
+border-color:rgba(43,255,136,.26);
+background:radial-gradient(65% 80% at 0% 0%,rgba(14,165,233,.09),transparent 60%),linear-gradient(180deg,rgba(43,255,136,.05),transparent 55%),var(--s)}
+.pj-ls:hover{border-color:rgba(45,212,191,.62);box-shadow:0 20px 48px rgba(0,0,0,.55),0 0 34px rgba(14,165,233,.18),0 0 28px rgba(43,255,136,.14)}
+.ls-media{border-radius:14px;overflow:hidden;border:1px solid rgba(56,189,248,.28);background:#030a12;box-shadow:0 12px 32px rgba(0,0,0,.45),0 0 24px rgba(14,165,233,.12);transition:border-color .35s,box-shadow .35s}
+.pj-ls:hover .ls-media{border-color:rgba(43,255,136,.5);box-shadow:0 16px 38px rgba(0,0,0,.55),0 0 30px rgba(43,255,136,.16)}
+.ls-media img{display:block;width:100%;height:auto;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.pj-ls:hover .ls-media img{transform:scale(1.025)}
+.ls-info{display:flex;flex-direction:column;min-width:0}
+.ls-badge{display:inline-flex;align-items:center;gap:.45rem;align-self:flex-start;color:#67e8f9;font:500 .74rem var(--mono);margin-bottom:.75rem;padding:.24rem .75rem;border:1px solid rgba(56,189,248,.32);border-radius:999px;background:rgba(14,165,233,.09)}
+.ls-info h3{font:800 clamp(1.5rem,2.6vw,2rem)/1.15 var(--body);margin-bottom:.25rem}
+.ls-sub{color:var(--g);font:500 .9rem var(--mono);margin-bottom:.85rem}
+.ls-desc{color:#cfdad4;font-size:.96rem;line-height:1.65;margin-bottom:1.1rem}
+.ls-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem .9rem;margin-bottom:1.2rem}
+.ls-feats li{display:flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--t)}
+.ls-feats li::before{content:"✓";color:var(--g);font:700 .85rem var(--mono);flex:none}
+.ls-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.35rem}
+.ls-tags span{font:400 .72rem var(--mono);color:var(--g);border:1px solid var(--b);border-radius:6px;padding:.15rem .55rem;background:rgba(43,255,136,.05)}
+.ls-actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.ls-actions .btn{min-height:44px;padding:.6rem 1.3rem;font-size:.92rem;cursor:pointer}
+.ls-actions .ic{width:1.05rem;height:1.05rem;stroke:currentColor}
+
+body.ls-lock{overflow:hidden}
+.ls-modal{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(2,6,4,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
+.ls-modal.open{opacity:1;visibility:visible}
+.ls-dialog{width:min(780px,100%);max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow-y:auto;-webkit-overflow-scrolling:touch;border-radius:18px;border:1px solid rgba(45,212,191,.38);background:radial-gradient(70% 45% at 100% 0%,rgba(14,165,233,.1),transparent),#08110c;box-shadow:0 28px 80px rgba(0,0,0,.78),0 0 42px rgba(14,165,233,.18);padding:1.5rem;transform:translateY(12px) scale(.98);transition:transform .28s ease}
+.ls-modal.open .ls-dialog{transform:none}
+.ls-mhead{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.ls-mclose{appearance:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--b);background:rgba(43,255,136,.06);color:var(--t);font:600 1.25rem/1 var(--body);cursor:pointer;flex:none;transition:.2s}
+.ls-mclose:hover{border-color:var(--g);color:var(--g);background:rgba(43,255,136,.14)}
+.ls-mimg{border-radius:14px;overflow:hidden;border:1px solid rgba(56,189,248,.28);margin-bottom:1.25rem;background:#030a12}
+.ls-mimg img{display:block;width:100%;height:auto}
+.ls-mgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;margin-bottom:1.35rem}
+.ls-mbox{padding:1rem 1.1rem;border-radius:12px;border:1px solid var(--b);background:rgba(43,255,136,.035)}
+.ls-mbox h4{margin:0 0 .65rem;font:600 .8rem var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--g)}
+.ls-mbox ul{display:grid;gap:.42rem}
+.ls-mbox li{font-size:.9rem;color:#cfdad4;display:flex;gap:.45rem}
+.ls-mbox li::before{content:"›";color:#67e8f9;font-weight:700}
+
 .projects{grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr}
 .pj{display:flex;flex-direction:column;overflow:hidden}
 .pb{padding:1.2rem 1.3rem .6rem}
@@ -203,6 +244,7 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
 
 /* responsive */
 @media (max-width:1200px){.projects{grid-template-columns:repeat(2,1fr)}.skills{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:960px){.pj-ls{grid-template-columns:1fr;gap:1.35rem}}
 @media (max-width:1000px){
   .status{display:none}.burger{display:block}
   .menu{position:fixed;top:calc(var(--nav) - 4px);left:.75rem;right:.75rem;flex-direction:column;border-radius:18px;background:#0a130e;padding:.5rem;box-shadow:0 20px 40px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s}
@@ -215,6 +257,7 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
   .feat{grid-template-columns:1fr 1fr;gap:1.2rem}
   .about{grid-template-columns:1fr;justify-items:start;gap:2rem}
   .projects,.contacts{grid-template-columns:1fr;grid-auto-rows:auto}
+  .pj-ls{padding:1.1rem}.ls-feats,.ls-mgrid{grid-template-columns:1fr}.ls-actions .btn{flex:1 1 auto}.ls-dialog{padding:1.15rem}
   .btns .btn{flex:1 1 calc(50% - .4rem);padding-inline:1rem}
   .skills{grid-template-columns:1fr;gap:.7rem}
   .sk{flex-direction:row;align-items:center;min-height:0;padding:1rem 1.1rem}.sk .lv{margin:0 0 0 auto}
@@ -459,6 +502,38 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
 
 <section id="projects" class="sec"><div class="wrap">
   <h2 class="ttl rv">Projects &amp; <span>Achievements</span></h2>
+
+  <!-- Featured Project: LearnSphere -->
+  <article class="card pj-ls rv">
+    <div class="ls-media">
+      <img src="learnsphere.png" alt="LearnSphere — Personal Learning Management System dashboard and showcase preview" loading="lazy" decoding="async">
+    </div>
+    <div class="ls-info">
+      <span class="ls-badge">Education / Productivity / Web Development</span>
+      <h3>LearnSphere</h3>
+      <p class="ls-sub">Personal Learning Management System</p>
+      <p class="ls-desc">A personal academic command center designed to organize study activities, manage learning resources, and track academic progress through an interactive dashboard.</p>
+      <ul class="ls-feats">
+        <li>Personal Study Planning</li>
+        <li>Task Management</li>
+        <li>Study Progress Tracking</li>
+        <li>Learning Resource Organization</li>
+        <li>Academic Dashboard</li>
+        <li>Productivity Tracking</li>
+      </ul>
+      <div class="ls-tags">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>SPA Dashboard</span><span>Dark UI</span>
+      </div>
+      <div class="ls-actions">
+        <a class="btn p" href="https://mh1321141401.github.io/Learnsphere/#/dashboard" target="_blank" rel="noopener noreferrer">
+          Live Demo <svg class="ic"><use href="#i-ext"/></svg>
+        </a>
+        <button type="button" class="btn o" id="lsOpen">View Details</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- Existing Projects -->
   <div class="grid projects">
 
     <a class="card pj rv" href="https://sites.google.com/view/meahearab-hossain-portal/portal-home" target="_blank" rel="noopener noreferrer">
@@ -605,6 +680,53 @@ h1 em{font:500 .24em/1 var(--mono);font-style:normal;color:var(--g);vertical-ali
   </div>
 </div></footer>
 
+<!-- LearnSphere Project Details Modal -->
+<div class="ls-modal" id="lsModal" role="dialog" aria-modal="true" aria-labelledby="lsModalTitle" aria-hidden="true">
+  <div class="ls-dialog">
+    <div class="ls-mhead">
+      <div>
+        <span class="ls-badge" style="margin-bottom:.45rem">Education / Productivity / Web Development</span>
+        <h3 id="lsModalTitle" style="font:800 1.65rem/1.15 var(--body)">LearnSphere</h3>
+        <p class="ls-sub" style="margin:0">Personal Learning Management System</p>
+      </div>
+      <button type="button" class="ls-mclose" id="lsClose" aria-label="Close project details">&times;</button>
+    </div>
+    <div class="ls-mimg">
+      <img src="learnsphere.png" alt="LearnSphere academic dashboard interface and feature showcase" loading="lazy" decoding="async">
+    </div>
+    <p class="ls-desc">A personal academic command center designed to organize study activities, manage learning resources, and track academic progress through an interactive dashboard.</p>
+    <div class="ls-mgrid">
+      <div class="ls-mbox">
+        <h4>Implemented Features</h4>
+        <ul>
+          <li>Personal Study Planning</li>
+          <li>Task Management (+ Task workflow)</li>
+          <li>Study Progress &amp; Chapter Tracking</li>
+          <li>Learning Resource Organization</li>
+          <li>Interactive Academic Dashboard</li>
+          <li>Productivity, Study Timer &amp; Streak Tracking</li>
+        </ul>
+      </div>
+      <div class="ls-mbox">
+        <h4>Technology &amp; Architecture</h4>
+        <ul>
+          <li>Web Interface: HTML5, CSS3 &amp; JavaScript</li>
+          <li>Client-side hash routing (#/dashboard)</li>
+          <li>Responsive sidebar &amp; stat-card layout</li>
+          <li>Modern dark cyan-emerald UI theme</li>
+          <li>Hosted on GitHub Pages</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ls-actions">
+      <a class="btn p" href="https://mh1321141401.github.io/Learnsphere/#/dashboard" target="_blank" rel="noopener noreferrer">
+        Live Demo <svg class="ic"><use href="#i-ext"/></svg>
+      </a>
+      <button type="button" class="btn o" id="lsCloseBtn">Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
 document.documentElement.classList.add('js');
 const nav=document.getElementById('nav'),burger=document.getElementById('burger'),menu=document.getElementById('menu'),
@@ -641,6 +763,24 @@ if('IntersectionObserver' in window){
 }else{
   rv.forEach(el=>el.classList.add('in'));
 }
+
+/* LearnSphere Details Modal */
+(function(){
+  const modal=document.getElementById('lsModal'),openBtn=document.getElementById('lsOpen'),
+  closeBtn=document.getElementById('lsClose'),closeBtn2=document.getElementById('lsCloseBtn');
+  if(!modal||!openBtn)return;
+  const toggle=show=>{
+    modal.classList.toggle('open',show);
+    modal.setAttribute('aria-hidden',String(!show));
+    document.body.classList.toggle('ls-lock',show);
+    if(show)closeBtn.focus();else openBtn.focus();
+  };
+  openBtn.addEventListener('click',()=>toggle(true));
+  closeBtn.addEventListener('click',()=>toggle(false));
+  closeBtn2.addEventListener('click',()=>toggle(false));
+  modal.addEventListener('click',e=>{if(e.target===modal)toggle(false)});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))toggle(false)});
+})();
 </script>
 </body>
 </html>
